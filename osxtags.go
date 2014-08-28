@@ -14,17 +14,17 @@ import "howett.net/plist"
 type TagColor int
 
 const (
-	None TagColor = 0
-	Gray TagColor = 1
-	Green TagColor = 2
+	None   TagColor = 0
+	Gray   TagColor = 1
+	Green  TagColor = 2
 	Purple TagColor = 3
-	Blue TagColor = 4
+	Blue   TagColor = 4
 	Yellow TagColor = 5
-	Red TagColor = 6
+	Red    TagColor = 6
 	Orange TagColor = 7
-	)
+)
 
-func (t TagColor) String() string{
+func (t TagColor) String() string {
 	switch t {
 	case None:
 		return "None"
@@ -48,7 +48,7 @@ func (t TagColor) String() string{
 
 type ColorTag struct {
 	Color TagColor
-	Name string
+	Name  string
 }
 
 func GetColors(filename string) ([]ColorTag, error) {
@@ -64,7 +64,7 @@ func GetColors(filename string) ([]ColorTag, error) {
 	// decode it from a binary plist:
 
 	colList := []string{}
-	
+
 	_, err = plist.Unmarshal(colormeta, &colList)
 
 	if err != nil {
